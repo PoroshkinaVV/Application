@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  c_coordinates: 
+  front_point: 1
+  computer_id: 
+
+two:
+  c_coordinates: 
+  front_point: 1
+  computer_id: 

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>D coordinates:</strong>
+  <%= @desk_geometry.d_coordinates %>
+</p>
+
+<p>
+  <strong>Front point:</strong>
+  <%= @desk_geometry.front_point %>
+</p>
+
+<p>
+  <strong>Desk:</strong>
+  <%= @desk_geometry.desk %>
+</p>
+
+<%= link_to 'Edit', edit_desk_geometry_path(@desk_geometry) %> |
+<%= link_to 'Back', desk_geometries_path %>

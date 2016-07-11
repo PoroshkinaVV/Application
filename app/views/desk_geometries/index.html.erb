@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Desk Geometries</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>D coordinates</th>
+      <th>Front point</th>
+      <th>Desk</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @desk_geometries.each do |desk_geometry| %>
+      <tr>
+        <td><%= desk_geometry.d_coordinates %></td>
+        <td><%= desk_geometry.front_point %></td>
+        <td><%= desk_geometry.desk %></td>
+        <td><%= link_to 'Show', desk_geometry %></td>
+        <td><%= link_to 'Edit', edit_desk_geometry_path(desk_geometry) %></td>
+        <td><%= link_to 'Destroy', desk_geometry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Desk geometry', new_desk_geometry_path %>

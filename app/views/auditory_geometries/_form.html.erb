@@ -1,0 +1,25 @@
+<%= form_for(@auditory_geometry) do |f| %>
+  <% if @auditory_geometry.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@auditory_geometry.errors.count, "error") %> prohibited this auditory_geometry from being saved:</h2>
+
+      <ul>
+      <% @auditory_geometry.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :a_coordinates %><br>
+    <%= f.text_field :a_coordinates %>
+  </div>
+  <div class="field">
+    <%= f.label :auditory_id %><br>
+    <%= f.text_field :auditory_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

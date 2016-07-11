@@ -1,0 +1,29 @@
+<%= form_for(@computer_geometry) do |f| %>
+  <% if @computer_geometry.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@computer_geometry.errors.count, "error") %> prohibited this computer_geometry from being saved:</h2>
+
+      <ul>
+      <% @computer_geometry.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :c_coordinates %><br>
+    <%= f.text_field :c_coordinates %>
+  </div>
+  <div class="field">
+    <%= f.label :front_point %><br>
+    <%= f.number_field :front_point %>
+  </div>
+  <div class="field">
+    <%= f.label :computer_id %><br>
+    <%= f.text_field :computer_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

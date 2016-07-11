@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Auditory Geometries</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>A coordinates</th>
+      <th>Auditory</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @auditory_geometries.each do |auditory_geometry| %>
+      <tr>
+        <td><%= auditory_geometry.a_coordinates %></td>
+        <td><%= auditory_geometry.auditory %></td>
+        <td><%= link_to 'Show', auditory_geometry %></td>
+        <td><%= link_to 'Edit', edit_auditory_geometry_path(auditory_geometry) %></td>
+        <td><%= link_to 'Destroy', auditory_geometry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Auditory geometry', new_auditory_geometry_path %>

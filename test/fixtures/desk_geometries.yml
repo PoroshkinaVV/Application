@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  d_coordinates: 
+  front_point: 1
+  desk_id: 
+
+two:
+  d_coordinates: 
+  front_point: 1
+  desk_id: 

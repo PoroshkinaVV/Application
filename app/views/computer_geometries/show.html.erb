@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>C coordinates:</strong>
+  <%= @computer_geometry.c_coordinates %>
+</p>
+
+<p>
+  <strong>Front point:</strong>
+  <%= @computer_geometry.front_point %>
+</p>
+
+<p>
+  <strong>Computer:</strong>
+  <%= @computer_geometry.computer %>
+</p>
+
+<%= link_to 'Edit', edit_computer_geometry_path(@computer_geometry) %> |
+<%= link_to 'Back', computer_geometries_path %>
