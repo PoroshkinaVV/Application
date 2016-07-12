@@ -1,6 +1,5 @@
 class Building < ActiveRecord::Base
-  has_one :building_geometry
-  has_many :auditories
-
+  has_many :floors
+  
   validates :name, presence: true
 end

@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b F coordinates:
+  = @floor_geometry.f_coordinates
+%p
+  %b Floor:
+  = @floor_geometry.floor
+
+= link_to 'Edit', edit_floor_geometry_path(@floor_geometry)
+\|
+= link_to 'Back', floor_geometries_path

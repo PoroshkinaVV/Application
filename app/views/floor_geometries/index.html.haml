@@ -1,14 +1,13 @@
-%h1 Buildings
-- BuildingGeometry.all.each do |b_g|
-  .div
-  = link_to 'Show', b_g
-  = link_to 'Edit', edit_building_geometry_path(b_g)
-  = link_to 'Destroy', b_g, method: :delete, data: { confirm: 'Are you sure?' }
-  .div Building: #{Building.find_by_id(b_g.building_id).name}
+%h1 Listing floor_geometries
+- @floor_geometries.each do |f_g|
+  %tr
+    %td= link_to 'Show', f_g
+    %td= link_to 'Edit', edit_floor_geometry_path(f_g)
+    %td= link_to 'Destroy', f_g, :method => :delete, :data => { :confirm => 'Are you sure?' }
   %svg{height: 250, width: 250}
-    %polygon{points: "#{b_g.b_coordinates_array.flatten.join(',')}", style: "fill:brown; stroke:black; stroke-width:0.5"}
+    %polygon{points: "#{f_g.f_coordinates_array.flatten.join(',')}", style: "fill:brown; stroke:black; stroke-width:0.5"}
     - AuditoryGeometry.all.each do |a_g|
-      - if Building.find_by_id(b_g.building_id) == Building.find_by_id(Auditory.find_by_id(a_g.auditory_id).building_id)
+      - if Floor.find_by_id(f_g.floor_id) == Floor.find_by_id(Auditory.find_by_id(a_g.auditory_id).floor_id)
         %polygon{points: "#{a_g.a_coordinates_array.flatten.join(',')}", style: "fill:green; stroke:black; stroke-width:0.5"}
         - DeskGeometry.all.each do |d_g|
           - if Auditory.find_by_id(a_g.auditory_id) == Auditory.find_by_id(Desk.find_by_id(d_g.desk_id).auditory_id)
@@ -16,6 +15,7 @@
             - ComputerGeometry.all.each do |c_g|
               - if Desk.find_by_id(d_g.desk_id) == Desk.find_by_id(Computer.find_by_id(c_g.computer_id).desk_id)
                 %polygon{points: "#{c_g.c_coordinates_array.flatten.join(',')}", style: "fill:black;stroke:black; stroke-width:0.5"}
- 
-.div
-= link_to 'New Building geometry', new_building_geometry_path 
+
+%br
+
+= link_to 'New Floor geometry', new_floor_geometry_path

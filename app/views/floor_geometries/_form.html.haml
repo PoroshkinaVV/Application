@@ -1,0 +1,16 @@
+= form_for @floor_geometry do |f|
+  - if @floor_geometry.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@floor_geometry.errors.count, "error")} prohibited this floor_geometry from being saved:"
+      %ul
+        - @floor_geometry.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :f_coordinates
+    = f.text_field :f_coordinates
+  .field
+    = f.label :floor
+    = f.text_field :floor
+  .actions
+    = f.submit 'Save'

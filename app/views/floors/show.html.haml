@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Number:
+  = @floor.number
+%p
+  %b Building:
+  = @floor.building
+
+= link_to 'Edit', edit_floor_path(@floor)
+\|
+= link_to 'Back', floors_path

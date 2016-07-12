@@ -1,0 +1,23 @@
+%h1 Listing floors
+
+%table
+  %thead
+    %tr
+      %th Number
+      %th Building
+      %th
+      %th
+      %th
+
+  %tbody
+    - @floors.each do |floor|
+      %tr
+        %td= floor.number
+        %td= floor.building
+        %td= link_to 'Show', floor
+        %td= link_to 'Edit', edit_floor_path(floor)
+        %td= link_to 'Destroy', floor, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Floor', new_floor_path

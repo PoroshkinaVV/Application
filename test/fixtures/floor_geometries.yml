@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  b_coordinates: 
-  building_id: 
+  f_coordinates: 
+  floor_id: 
 
 two:
-  b_coordinates: 
-  building_id: 
+  f_coordinates: 
+  floor_id: 

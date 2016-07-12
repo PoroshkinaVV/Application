@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
+  resources :floor_geometries
+  resources :floors
   resources :computer_geometries
   resources :desk_geometries
   resources :computers
   resources :desks
   resources :auditory_geometries
   resources :auditories
-  resources :building_geometries
   resources :buildings
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

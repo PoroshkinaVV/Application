@@ -11,19 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160711130931) do
+ActiveRecord::Schema.define(version: 20160712093450) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "auditories", force: :cascade do |t|
-    t.string   "name",        null: false
-    t.integer  "building_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "name",       null: false
+    t.integer  "floor_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_index "auditories", ["building_id"], name: "index_auditories_on_building_id", using: :btree
+  add_index "auditories", ["floor_id"], name: "index_auditories_on_floor_id", using: :btree
 
   create_table "auditory_geometries", force: :cascade do |t|
     t.string   "a_coordinates", null: false
@@ -33,15 +33,6 @@ ActiveRecord::Schema.define(version: 20160711130931) do
   end
 
   add_index "auditory_geometries", ["auditory_id"], name: "index_auditory_geometries_on_auditory_id", using: :btree
-
-  create_table "building_geometries", force: :cascade do |t|
-    t.string   "b_coordinates", null: false
-    t.integer  "building_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-  end
-
-  add_index "building_geometries", ["building_id"], name: "index_building_geometries_on_building_id", using: :btree
 
   create_table "buildings", force: :cascade do |t|
     t.string   "name",       null: false
@@ -87,11 +78,30 @@ ActiveRecord::Schema.define(version: 20160711130931) do
 
   add_index "desks", ["auditory_id"], name: "index_desks_on_auditory_id", using: :btree
 
-  add_foreign_key "auditories", "buildings"
+  create_table "floor_geometries", force: :cascade do |t|
+    t.string   "f_coordinates"
+    t.integer  "floor_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "floor_geometries", ["floor_id"], name: "index_floor_geometries_on_floor_id", using: :btree
+
+  create_table "floors", force: :cascade do |t|
+    t.integer  "number"
+    t.integer  "building_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "floors", ["building_id"], name: "index_floors_on_building_id", using: :btree
+
+  add_foreign_key "auditories", "floors"
   add_foreign_key "auditory_geometries", "auditories"
-  add_foreign_key "building_geometries", "buildings"
   add_foreign_key "computer_geometries", "computers"
   add_foreign_key "computers", "desks"
   add_foreign_key "desk_geometries", "desks"
   add_foreign_key "desks", "auditories"
+  add_foreign_key "floor_geometries", "floors"
+  add_foreign_key "floors", "buildings"
 end

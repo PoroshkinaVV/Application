@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class BuildingGeometryTest < ActiveSupport::TestCase
+class FloorTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
